@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title=homeAdmin)"> </head>
+<body>
+<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+<div class="transparentbox">
+<div class="desc">Benvenuto amministratore, questa qui è la pagina di controllo dove puoi scegliere l'operazione che preferisci eseguire. Buon lavoro</div>
+<div id="related_links">
+<h4>Pagina Amministratore
+</h4>
+<h4>Artista
+</h4>
+<div>
+<a href="/artistaForm">inserisci artista</a>
+</div>
+<div>
+<a href="/artistaA">mostra artista</a>
+</div>
+<h4>Curatore
+</h4>
+<div>
+  <a href="/curatoreForm">inserisci curatore</a>
+  </div>
+  <div>
+  <a href="/curatoreA">mostra curatori</a>
+</div>
+<h4>Collezione
+</h4>
+<div>
+  <a href="/collezioneForm">inserisci collezione</a>
+  </div>
+  <div>
+  <a href="/collezioneA">mostra collezioni</a>
+  </div>
+  <div>
+  <a href="/elCollezioni">elimina collezione</a>
+</div>
+<h4>Opera 
+</h4>
+<div>
+  <a href="/operaForm">inserisci opera</a>
+  </div>
+  <div>
+  <a href="/operaA">mostra opere</a>
+  </div>
+  <div>
+  <a href="/elOpere">elimina opera</a>
+</div>
+</div>
+<footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+  </body>
+  </div>
+</html>

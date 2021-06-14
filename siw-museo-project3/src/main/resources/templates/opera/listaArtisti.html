@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title=artisti)"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links">
+    	<h4>Lista degli artisti da scegliere per indicare l'autore</h4>
+		<ul>
+			<li th:each="artista : ${artisti}">
+			<div th:if="${opera}" th:object="${opera}">
+				<a href="operaFormAutore.html" 
+				   th:href="@{'/operaFormArtista' + '/' + ${artista.id} + '/' + ${opera.id}}" 
+				   th:text="|${artista.nome} ${artista.cognome} ${artista.id}|">Penna rossa</a>
+			</li>
+		</ul>
+		</div>
+		<a href="noArtista.html"
+		th:href="@{'/noArtista' + '/' + ${opera.id}}">Se non trovi l'artista autore dell'opera, inseriscilo subito!</a>
+		
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

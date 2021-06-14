@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title='InsArtista')"> </head>
+<body >
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+		<h4>Inserisci artista</h4>
+	</div>
+	<form th:action="@{/artistaForm}" method="POST" th:object="${artista}">
+		<div>
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+			<div>
+				<span>Nome:</span>
+				<span><input type="text" th:field="${artista.nome}" /></span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>	
+			<div>
+				<span>Cognome:</span>
+				<span><input type="text" th:field="${artista.cognome}" /></span>
+				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+			</div>	
+			<div>
+				<span>DataDiNascita:</span>
+				<span><input type="text" th:field="${artista.dataDiNascita}" /></span>
+				<span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span>
+			</div>
+			<div>
+				<span>LuogoDiNascita:</span>
+				<span><input type="text" th:field="${artista.luogoDiNascita}" /></span>
+				<span th:if="${#fields.hasErrors('luogoDiNascita')}" th:errors="*{luogoDiNascita}"></span>
+			</div>
+			<div>
+				<span>Path:</span>
+				<span><input type="text" th:field="${artista.nazionalita}" /></span>
+				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
+			</div>
+			<div>
+				<span><button type="submit">SUBMIT</button></span>
+			</div>
+		</div>
+	</form>
+	</div>
+    <footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

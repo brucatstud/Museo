@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/basePostLogin.html :: headerfiles(title=#{pageTitle.home})"> </head>
+<body>
+	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
+<div class="transparentbox">
+<div class="homet">Benvenuti! Questo è il sito web del museo delle arti moderne della capitale! In questo sito sarà possibile vedere tutte le opere presenti all'interno del museo, le collezioni al quale appartengno e gli artisti che le hanno create.
+ Qua sotto è possibile vedere degli esempi di opere che potrere ammirare nel museo. Cosa state aspettando, cliccateci sopra!</div>
+	<div class="row">
+  <div class="column">
+    <img src="images/forme.jpg" alt="Nature" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/rose.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/misto.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/quadroex.jpeg" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+</div>
+    
+    <footer th:replace="fragments/basePostLogin.html :: fondo"></footer>
+</body>
+
+</html>

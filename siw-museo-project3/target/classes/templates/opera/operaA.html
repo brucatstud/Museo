@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title=Opera)"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+    <div>
+    	<h4>OPERA</h4>
+    	<div th:if="${opera}" th:object="${opera}">
+			<h5 th:text="*{titolo}">titolo</h5>
+			<span th:text="*{descrizione}">descrizione </span>
+			<span th:text="*{anno}">anno </span>
+			<img th:src="@{*{path}}"/>
+   		</div>
+    	<div th:unless="${opera}">Questa opera non esiste</div>
+    	
+    	<div th:if="${artista}" th:object="${artista}">
+    	<h4>AUTORE</h4>
+    	<a href="artista.html" 
+				   th:href="@{'/artistaA' + '/' + ${artista.id}}"
+				   th:text="${artista.nome}">Penna rossa</a>
+    	</div>
+    	<div th:unless="${artista}">Questo artista non esiste</div>
+    	<h4>COLLEZIONE</h4>
+    	<a href="collezione.html" 
+				   th:href="@{'/collezioneA' + '/' + ${collezione.id}}"
+				   th:text="${collezione.nome}">Penna rossa</a>
+    	</div>
+    	<div th:unless="${collezione}">Questa collezione non esiste</div>
+    </div>
+    </div>
+    <footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

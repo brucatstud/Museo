@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title=Opera)"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+		<div class="desc"> Ecco il pezzo grosso del museo, le opere! Ciascuno di questi capolavori ha dietro di se una storia incredibile, e sta solo a te scoprirla!</div>
+	
+	<div id="related_links">
+	<div>
+    	<h4>Lista delle opere</h4>
+		<ul>
+			<li th:each="opera : ${opere}">
+				<a href="opera.html" 
+				   th:href="@{'/operaA' + '/' + ${opera.id}}" 
+				   th:text="${opera.titolo}">Penna rossa</a>
+			</li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

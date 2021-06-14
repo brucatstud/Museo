@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title=Opera)"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+    <div>
+    	<h4>VUOI ELIMINARE QUESTA OPERA?</h4>
+    	<div th:if="${opera}" th:object="${opera}">
+			<h5 th:text="*{titolo}">titolo</h5>
+			<span th:text="*{descrizione}">descrizione </span>
+			<span th:text="*{anno}">anno </span>
+			<img th:src="@{*{path}}"/>
+   		</div>
+    	<div th:unless="${opera}">Questa opera non esiste</div>
+    	
+    	<div th:if="${artista}" th:object="${artista}">
+    	<a href="artista.html" 
+				   th:href="@{'/artista' + '/' + ${artista.id}}"
+				   th:text="${artista.nome}">Penna rossa</a>
+    	</div>
+    	<div th:unless="${artista}">Questo artista non esiste</div>
+    	<a href="collezione.html" 
+				   th:href="@{'/collezione' + '/' + ${collezione.id}}"
+				   th:text="${collezione.nome}">Penna rossa</a>
+    	</div>
+    	<div th:unless="${collezione}">Questa collezione non esiste</div>
+    </div>
+    <a href="/operaDel" 
+				   th:href="@{'/operaDel' + '/' + ${opera.id} + '/' + ${artista.id} + '/' + ${collezione.id}}"
+				   th:text="SI">Penna rossa</a>
+    <a href="/elOpere">NO</a> </span>
+    </div>
+    <footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

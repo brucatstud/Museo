@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title='InsOpera')"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+		<h4>Inserisci opera</h4>
+	</div>
+	<form th:action="@{/operaForm}" method="POST" th:object="${opera}">
+		<div>
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+			<div>
+				<span>Titolo:</span>
+				<span><input type="text" th:field="${opera.titolo}" /></span>
+				<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+			</div>	
+			<div>
+				<span>Anno:</span>
+				<span><input type="text" th:field="${opera.anno}" /></span>
+				<span th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></span>
+			</div>	
+			<div>
+				<span>Descrizione:</span>
+				<span><input type="text" th:field="${opera.descrizione}" /></span>
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			</div>
+			<div>
+				<span>Path:</span>
+				<span><input type="text" th:field="${opera.path}" /></span>
+				<span th:if="${#fields.hasErrors('path')}" th:errors="*{path}"></span>
+			</div>
+			<div>
+				<span><button type="submit">SUBMIT</button></span>
+			</div>
+		</div>
+		</div>
+	</form>
+    <footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLogin.html :: headerfiles(title=collezione)"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links">
+    	<h4>Lista delle collezioni</h4>
+		<ul>
+			<li th:each="collezione : ${collezioni}">
+				<a href="collezione.html" 
+				   th:href="@{'/elCollezione' + '/' + ${collezione.id}}" 
+				   th:text="${collezione.nome}">Penna rossa</a>
+			</li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

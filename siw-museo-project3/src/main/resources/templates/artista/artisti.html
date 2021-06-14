@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLogin.html :: headerfiles(title=artista)"> </head>
+<body>
+	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div class="desc"> In questa pagina sono presenti tutti gli artisti contenuti nel nostro sito! Forza, scegline uno per vedere le opere che ha fatto</div>
+	<div>
+	<div id="related_links">
+    	<h4>Lista degli artisti</h4>
+		<ul>
+			<li th:each="artista : ${artisti}">
+				<a href="artista.html" 
+				   th:href="@{'/artista' + '/' + ${artista.id}}" 
+				   th:text="${artista.nome}">Penna rossa
+				   th:text="${artista.cognome}">Penna rossa</a>
+			</li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLogin.html :: fondo"></footer>
+</body>
+</html>

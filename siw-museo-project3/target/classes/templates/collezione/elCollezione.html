@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/basePostLogin.html :: headerfiles(title=collezione)"> </head>
+<body>
+	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
+	<div class="transparentbox">
+    <div>
+    	<h4>COLLEZIONE</h4>
+    	<div th:if="${collezione}" th:object="${collezione}">
+			<h5 th:text="*{nome}">nome</h5>
+			<span th:text="*{descrizione}">cognome </span>
+   		</div>
+    	<div th:unless="${collezione}">Questa collezione non esiste</div>
+    	
+    	<div th:if="${curatore}" th:object="${curatore}">
+    	<a href="curatore.html" 
+				   th:href="@{'/curatore' + '/' + ${curatore.id}}"
+				   th:text="${curatore.nome}">Penna rossa</a>
+    	</div>
+    	<div th:unless="${curatore}">Questo curatore non esiste</div>
+    	<h5>se vedi il nome di alcune opere, vuol dire che la collezione non può essere ancora eliminata. Per favore, prima elimini dal sistema le seguenti opere</h5>
+    	<li th:each="opera : ${opere}">
+				<a href="opera.html" 
+				   th:href="@{'/elOpera' + '/' + ${opera.id}}" 
+				   th:text="${opera.titolo}">Penna rossa</a>
+			</li>
+		 <a href="/collezioneDel" 
+				   th:href="@{'/collezioneDel' + '/' + ${collezione.id}}"
+				   th:text="SI">Penna rossa</a>
+    </div>
+    </div>
+    <footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

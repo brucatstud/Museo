@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLogin.html :: headerfiles(title=collezione)"> </head>
+<body>
+	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links">
+    	<h4>Lista dei curatori da scegliere per gestire la collezione</h4>
+		<ul>
+			<li th:each="curatore : ${curatori}">
+			<div th:if="${collezione}" th:object="${collezione}">
+				<a href="collezioneFormCuratore.html" 
+				   th:href="@{'/collezioneFormCuratore' + '/' + ${curatore.id} + '/' + ${collezione.id}}" 
+				   th:text="|${curatore.nome} ${curatore.cognome} ${curatore.id}|">Penna rossa</a>
+			</li>
+		</ul>
+		</div>
+		<a href="noCuratore.html"
+		th:href="@{'/noCuratore' + '/' + ${collezione.id}}">Se non trovi il curatore che deve gestirlo, inseriscilo subito!</a>
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

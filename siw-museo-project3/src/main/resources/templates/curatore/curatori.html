@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLogin.html :: headerfiles(title=Curatore)"> </head>
+<body>
+	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div class="desc"> Questi qui sono i nostri migliori curatori! Delle ottime persone, estremamente qualificate ed in grado di rispondere ad ogni vostra curiosità! Clicca per vedere quali colleizoni gestiscono</div>
+	<div id="related_links">
+    	<h4>Lista dei curatori</h4>
+		<ul>
+			<li th:each="curatore : ${curatori}">
+				<a href="curatore.html" 
+				   th:href="@{'/curatore' + '/' + ${curatore.id}}" 
+				   th:text="${curatore.nome}">Penna rossa
+				   th:text="${curatore.cognome}">Penna rossa</a>
+			</li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLogin.html :: fondo"></footer>
+</body>
+</html>

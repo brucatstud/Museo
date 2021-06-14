@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles(title)">
+	<meta charset="UTF-8" />
+	<link th:href="@{/css/my-style.css}" rel="stylesheet">
+	<title th:text="${title}"></title>
+</head>
+<body>
+	<header th:fragment="intestazione">
+      <h1><strong>MUSEO DELLE ARTI MODERNE DI ROMA</strong></h1>
+      <div class="topnav">
+       <a href="/index">Home</a>
+       <a href="/artisti">Autori</a>
+       <a href="/collezioni">Collezioni</a>
+       <a href="/opera">Opere</a>
+       <a href="/curatore">Curatori</a>
+       <a href="/info">Informazioni</a>
+      </div>
+	
+	</header>
+
+	<p>Go to the next page to see fragments in action</p>
+	<aside>
+		<div>This is a sidebar</div>
+	</aside>
+	<div class="another">This is another sidebar</div>
+	
+	<footer th:fragment="fondo">
+	<div class="foot">
+		<a th:href="@{/}">Home</a>
+		<span class="foot">Museo delle Arti Moderne di Roma, Bruno Cataldi 538939</span>
+	</div>
+	</footer>
+</body>
+</html>

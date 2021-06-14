@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLogin.html :: headerfiles(title=collezioni)"> </head>
+<body>
+	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links">
+    	<h4>Lista delle collezioni da scegliere per indicare dove inserire l'opera</h4>
+		<ul>
+			<li th:each="collezione : ${collezioni}">
+			<div th:if="${opera}" th:object="${opera}">
+				<a href="operaFormCollezione.html" 
+				   th:href="@{'/operaFormCollezione' + '/' + ${collezione.id} + '/' + ${opera.id}}" 
+				   th:text="|${collezione.nome} ${collezione.id}|">Penna rossa</a>
+			</li>
+		</ul>
+    </div>
+		<a href="noCollezione.html"
+		th:href="@{'/noCollezione' + '/' + ${opera.id}}">Se non trovi la collezione dove mettere l'opera, inseriscila subito!</a>
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

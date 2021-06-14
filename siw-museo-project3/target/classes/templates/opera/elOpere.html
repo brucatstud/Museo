@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLogin.html :: headerfiles(title=Opera)"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+	<div id="related_links">
+    	<h4>Lista delle opere, scegline una da eliminare</h4>
+		<ul>
+			<li th:each="opera : ${opere}">
+				<a href="elOpera.html" 
+				   th:href="@{'/elOpera' + '/' + ${opera.id}}" 
+				   th:text="${opera.titolo}">Penna rossa</a>
+			</li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title='InsOpera')"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+		<h4>Inserisci collezione</h4>
+	</div>
+	<form th:action="@{/collezioneForm}" method="POST" th:object="${collezione}">
+		<div>
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+			<div>
+				<span>nome:</span>
+				<span><input type="text" th:field="${collezione.nome}" /></span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>	
+			<div>
+				<span>descrizione:</span>
+				<span><input type="text" th:field="${collezione.descrizione}" /></span>
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			</div>	
+			<div>
+				<span><button type="submit">SUBMIT</button></span>
+			</div>
+		</div>
+		
+	</form>
+	</div>
+    <footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>

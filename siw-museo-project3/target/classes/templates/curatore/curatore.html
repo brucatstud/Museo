@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/basePostLogin.html :: headerfiles(title=Curatore)"> </head>
+<body>
+	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
+	<div class="transparentbox">
+    <div>
+    	<h4>CURATORE</h4>
+    	<div th:if="${curatore}" th:object="${curatore}">
+			<h5 th:text="*{nome}">nome</h5>
+			<span th:text="*{cognome}">cognome </span>
+			<span th:text="*{email}"/>
+   		</div>
+    	<div th:unless="${curatore}">Questo curatore non esiste</div>
+    	<div id="related_links">
+    	<h4> Collezioni </h4>
+    	<li th:each="collezione : ${collezioni}">
+				<a href="collezione.html" 
+				   th:href="@{'/collezione' + '/' + ${collezione.id}}" 
+				   th:text="${collezione.nome}">Penna rossa</a>
+			</li>
+			</div>
+    </div>
+    </div>
+    <footer th:replace="fragments/basePostLogin.html :: fondo"></footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/basePostLoginAdmin.html :: headerfiles(title='InsCuratore')"> </head>
+<body>
+	<header th:replace="fragments/basePostLoginAdmin.html :: intestazione"></header>
+	<div class="transparentbox">
+	<div>
+		<h4>Inserisci curatore</h4>
+	</div>
+	<form th:action="@{/curatoreForm}" method="POST" th:object="${curatore}">
+		<div>
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+			<div>
+				<span>nome:</span>
+				<span><input type="text" th:field="${curatore.nome}" /></span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>	
+			<div>
+				<span>cognome:</span>
+				<span><input type="text" th:field="${curatore.cognome}" /></span>
+				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+			</div>	
+			<div>
+				<span>dataDiNascita (nota: la data di nascita va messa come yyyy/mm/dd:</span>
+				<span><input type="text" th:field="${curatore.dataDiNascita}" /></span>
+				<span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span>
+			</div>
+			<div>
+				<span>luogoDiNascita:</span>
+				<span><input type="text" th:field="${curatore.luogoDiNascita}" /></span>
+				<span th:if="${#fields.hasErrors('luogoDiNascita')}" th:errors="*{luogoDiNascita}"></span>
+			</div>
+			<div>
+				<span>email:</span>
+				<span><input type="text" th:field="${curatore.email}" /></span>
+				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+			</div>
+			<div>
+				<span>numeroDiTelefono:</span>
+				<span><input type="text" th:field="${curatore.numeroDiTelefono}" /></span>
+				<span th:if="${#fields.hasErrors('numeroDiTelefono')}" th:errors="*{numeroDiTelefono}"></span>
+			</div>
+			<div>
+				<span>matricola:</span>
+				<span><input type="text" th:field="${curatore.matricola}" /></span>
+				<span th:if="${#fields.hasErrors('matricola')}" th:errors="*{matricola}"></span>
+			</div>
+			<div>
+				<span><button type="submit">SUBMIT</button></span>
+			</div>
+		</div>
+		</div>
+	</form>
+    <footer th:replace="fragments/basePostLoginAdmin.html :: fondo"></footer>
+</body>
+</html>
