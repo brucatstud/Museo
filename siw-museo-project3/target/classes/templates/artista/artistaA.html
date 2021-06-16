@@ -8,7 +8,7 @@
     	<h4>ARTISTA</h4>
     	<div th:if="${artista}" th:object="${artista}">
 			<h5 th:text="*{nome}">titolo</h5>
-			<span th:text="*{cognome}">descrizione </span>
+			<h5 th:text="*{cognome}">descrizione </h5>
 			<span th:text="*{nazionalita}"/>
    		</div>
     	<div th:unless="${artista}">Questo artista non esiste</div>

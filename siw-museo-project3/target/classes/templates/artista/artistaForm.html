@@ -33,9 +33,17 @@
 				<span th:if="${#fields.hasErrors('luogoDiNascita')}" th:errors="*{luogoDiNascita}"></span>
 			</div>
 			<div>
-				<span>Path:</span>
+				<span>Nazionalità</span>
 				<span><input type="text" th:field="${artista.nazionalita}" /></span>
 				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
+			</div>
+			<div>
+				<span>DataDiMorte:</span>
+				<span><input type="text" th:field="${artista.dataDiMorte}" /></span>
+			</div>
+			<div>
+				<span>LuogoDiMorte:</span>
+				<span><input type="text" th:field="${artista.luogoDiMorte}" /></span>
 			</div>
 			<div>
 				<span><button type="submit">SUBMIT</button></span>

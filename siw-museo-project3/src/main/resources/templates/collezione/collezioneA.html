@@ -22,7 +22,7 @@
     	<h4> Opere </h4>
     	<li th:each="opera : ${opere}">
 				<a href="opera.html" 
-				   th:href="@{'/opera' + '/' + ${opera.id}}" 
+				   th:href="@{'/operaA' + '/' + ${opera.id}}" 
 				   th:text="${opera.titolo}">Penna rossa</a>
 			</li>
 			</div>

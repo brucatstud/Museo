@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import lombok.Data;
 
@@ -33,6 +34,7 @@ public @Data class Artista {
 	 @Column(nullable = false)
 	private String nazionalita;
 	 @OneToMany
+	 @OrderBy("titolo asc")
 	 private List<Opera> listaOpere;
 	
 

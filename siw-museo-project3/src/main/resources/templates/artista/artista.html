@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="fragments/basePostLogin.html :: headerfiles(title=artista})"> </head>
+	<head th:replace="fragments/basePostLogin.html :: headerfiles(title=artista)"> </head>
 <body >
 	<header th:replace="fragments/basePostLogin.html :: intestazione"></header>
 	<div class="transparentbox">
@@ -8,7 +8,12 @@
     	<h4>ARTISTA</h4>
     	<div th:if="${artista}" th:object="${artista}">
 			<h5 th:text="*{nome}">titolo</h5>
-			<span th:text="*{cognome}">descrizione </span>
+			<h5 th:text="*{cognome}">descrizione </h5>
+			<h4> DATA E LUOGO DI NASCITA</h4>
+			<span th:text="*{dataDiNascita}">dataDiNascita</span>
+			<span th:text="*{luogoDiNascita}">luogoDiNascita</span>
+			<h4> DATA DI MORTE </h4>
+			<span th:text="*{dataDiMorte}">dataDiMorte</span>
 			<span th:text="*{nazionalita}">nazionalita</span>
    		</div>
     	<div th:unless="${artista}">Questo artista non esiste</div>
