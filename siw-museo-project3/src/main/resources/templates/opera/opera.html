@@ -19,7 +19,7 @@
     	<h4>AUTORE</h4>
     	<a href="artista.html" 
 				   th:href="@{'/artista' + '/' + ${artista.id}}"
-				   th:text="${artista.nome}">Penna rossa</a>
+				   th:text="${artista.cognome}">Penna rossa</a>
     	</div>
     	<div th:unless="${artista}">Questo artista non esiste</div>
     	 <h4>COLLEZIONE</h4>

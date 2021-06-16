@@ -24,7 +24,7 @@
     	<h4>COLLEZIONE</h4>
     	<a href="collezione.html" 
 				   th:href="@{'/collezioneA' + '/' + ${collezione.id}}"
-				   th:text="${collezione.nome}">Penna rossa</a>
+				   th:text="${collezione.cognome}">Penna rossa</a>
     	</div>
     	<div th:unless="${collezione}">Questa collezione non esiste</div>
     </div>

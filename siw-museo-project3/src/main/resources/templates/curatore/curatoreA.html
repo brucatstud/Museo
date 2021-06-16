@@ -8,7 +8,7 @@
     	<h4>CURATORE</h4>
     	<div th:if="${curatore}" th:object="${curatore}">
 			<h5 th:text="*{nome}">nome</h5>
-			<span th:text="*{cognome}">cognome </span>
+			<h5 th:text="*{cognome}">cognome </h5>
 			<span th:text="*{email}"/>
    		</div>
     	<div th:unless="${curatore}">Questo curatore non esiste</div>
